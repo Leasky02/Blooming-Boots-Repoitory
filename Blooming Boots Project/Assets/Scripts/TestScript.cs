@@ -21,15 +21,15 @@ public class TestScript : MonoBehaviour
     void Update()
     {
         score += 1;
-        if(score==1000)
+        if(score==500)
         {
-            Debug.Log("Score reached 1000 x" + repeatedScore);
+            Debug.Log(score * repeatedScore + " points");
             score = 0;
             repeatedScore += 1;
         }
         else
         {
-            Debug.Log("Testing score");
+            Debug.Log("Testing score...");
         }
 
     }
