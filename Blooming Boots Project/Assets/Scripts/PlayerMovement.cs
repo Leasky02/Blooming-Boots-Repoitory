@@ -2,25 +2,110 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement: MonoBehaviour
 {
-    //Public variables
-    public float forceStrength;
+    public float jumpForce = 1000f;
+    public int directionalForce = 130;
+    public string groundTag = "Ground";
+    private bool touchingGround = false;
+    public float charge = 1;
+    public bool justStarted = true;
 
-    //Called by each button for movement
+    public AudioClip landingSound;
+    public AudioClip chargeSound;
 
-    public void MoveLeft()
+    public int jumpDirection = 0;
+    public bool attemptJump = false;
+
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        //Get rigidbody that'll be used for movement
-        Rigidbody2D ourRigidBody = GetComponent<Rigidbody2D>();
+        if (collision.collider.CompareTag(groundTag) == true && !justStarted)
+        {
+            AudioSource ourAudioSource = GetComponent<AudioSource>();
+            ourAudioSource.clip = landingSound;
+            ourAudioSource.Play();
+        }
+        justStarted = false;
 
-        //move in correct direction with the set force strength
-        ourRigidBody.AddForce(Vector2.left * forceStrength);
+        if (collision.collider.CompareTag(groundTag) == true)
+        {
+            touchingGround = true;
+        }
     }
-    public void MoveRight()
+
+    public void OnCollisionExit2D(Collision2D collision)
     {
-        Rigidbody2D ourRigidBody = GetComponent<Rigidbody2D>();
-
-        ourRigidBody.AddForce(Vector2.right * forceStrength);
+        if (collision.collider.CompareTag(groundTag) != true)
+        {
+            touchingGround = false;
+        }
+        AudioSource ourAudioSource = GetComponent<AudioSource>();
+        ourAudioSource.Stop();
     }
+
+
+    public void LeftHeld()
+    {
+        if(charge <= 6f)
+            charge += 0.07f;
+
+        gameObject.GetComponent<Animator>().Play("leftSquat");
+
+        AudioSource ourAudioSource = GetComponent<AudioSource>();
+
+        if(!ourAudioSource.isPlaying)
+        {
+            ourAudioSource.clip = chargeSound;
+            ourAudioSource.Play();
+        }
+    }
+
+    public void RightHeld()
+    {
+        if (charge <= 6f)
+            charge += 0.07f;
+
+        gameObject.GetComponent<Animator>().Play("rightSquat");
+
+        AudioSource ourAudioSource = GetComponent<AudioSource>();
+
+        if(!ourAudioSource.isPlaying)
+        {
+            ourAudioSource.clip = chargeSound;
+            ourAudioSource.Play();
+        }
+    }
+
+    public void LeftReleased()
+    {
+        attemptJump = true;
+        jumpDirection = -1;
+
+        gameObject.GetComponent<Animator>().Play("leftTall");
+
+    }
+
+    public void RightReleased()
+    {
+        attemptJump = true;
+        jumpDirection = 1;
+
+        gameObject.GetComponent<Animator>().Play("rightTall");
+
+    }
+
+    public void FixedUpdate()
+    {
+        if (touchingGround && attemptJump)
+        {
+            Rigidbody2D ourRigidbody = GetComponent<Rigidbody2D>();
+            ourRigidbody.AddForce(Vector2.up * jumpForce * charge);
+            Vector2 jumpDirectionVector = jumpDirection == 1 ? Vector2.right : Vector2.left;
+            ourRigidbody.AddForce(jumpDirectionVector * directionalForce * charge);
+            charge = 1f;
+            touchingGround = false;
+        }
+        attemptJump = false;
+    }
+
 }
