@@ -8,17 +8,20 @@ public class PlayerMovement: MonoBehaviour
     public int directionalForce = 130;
     public string groundTag = "Ground";
     private bool touchingGround = false;
-    public float charge = 1;
-    public bool justStarted = true;
-    public bool chargeStarted = false;
 
+    //audio varibales containing sounds
     public AudioClip landingSound;
     public AudioClip chargeSound;
     public AudioClip releaseSound;
 
+    //variables used in jumping and audio
     public int jumpDirection = 0;
+    public float charge = 1;
+    public bool justStarted = true;
+    public bool chargeStarted = false;
     public bool attemptJump = false;
 
+    //when collision first occurs, plays the sound of hitting ground
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag(groundTag) == true && !justStarted)
@@ -36,6 +39,8 @@ public class PlayerMovement: MonoBehaviour
         }
     }
 
+    //when collision ends, play sound of leaving ground
+
     public void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag(groundTag) != true)
@@ -44,6 +49,7 @@ public class PlayerMovement: MonoBehaviour
         }
     }
 
+    //when left button held down
 
     public void LeftHeld()
     {
@@ -59,10 +65,13 @@ public class PlayerMovement: MonoBehaviour
                 ourAudioSource.clip = chargeSound;
                 ourAudioSource.Play();
                 chargeStarted = true;
+                //set  to left charging animation
                 gameObject.GetComponent<Animator>().Play("leftSquat");
             }
         }
     }
+
+    //when right button held down
 
     public void RightHeld()
     {
@@ -78,16 +87,20 @@ public class PlayerMovement: MonoBehaviour
                 ourAudioSource.clip = chargeSound;
                 ourAudioSource.Play();
                 chargeStarted = true;
+                //set to right charging animation
                 gameObject.GetComponent<Animator>().Play("rightSquat");
             }
         }
     }
+
+    //when left button released
 
     public void LeftReleased()
     {
         attemptJump = true;
         jumpDirection = -1;
 
+        //set back to left default animation
         gameObject.GetComponent<Animator>().Play("leftTall");
 
         AudioSource ourAudioSource = GetComponent<AudioSource>();
@@ -97,11 +110,14 @@ public class PlayerMovement: MonoBehaviour
 
     }
 
+    //when right button released
+
+
     public void RightReleased()
     {
         attemptJump = true;
         jumpDirection = 1;
-
+        //set back to right default animation
         gameObject.GetComponent<Animator>().Play("rightTall");
 
         AudioSource ourAudioSource = GetComponent<AudioSource>();
@@ -110,6 +126,8 @@ public class PlayerMovement: MonoBehaviour
         chargeStarted = false;
 
     }
+
+    //constantly testing for player to jump
 
     public void FixedUpdate()
     {
