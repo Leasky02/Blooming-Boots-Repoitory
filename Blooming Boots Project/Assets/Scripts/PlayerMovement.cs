@@ -103,9 +103,6 @@ public class PlayerMovement: MonoBehaviour
         //set back to left default animation
         gameObject.GetComponent<Animator>().Play("leftTall");
 
-        AudioSource ourAudioSource = GetComponent<AudioSource>();
-        ourAudioSource.clip = releaseSound;
-        ourAudioSource.Play();
         chargeStarted = false;
 
     }
@@ -120,9 +117,6 @@ public class PlayerMovement: MonoBehaviour
         //set back to right default animation
         gameObject.GetComponent<Animator>().Play("rightTall");
 
-        AudioSource ourAudioSource = GetComponent<AudioSource>();
-        ourAudioSource.clip = releaseSound;
-        ourAudioSource.Play();
         chargeStarted = false;
 
     }
@@ -139,6 +133,10 @@ public class PlayerMovement: MonoBehaviour
             ourRigidbody.AddForce(jumpDirectionVector * directionalForce * charge * 4 / 5);
             charge = 1f;
             touchingGround = false;
+
+            AudioSource ourAudioSource = GetComponent<AudioSource>();
+            ourAudioSource.clip = releaseSound;
+            ourAudioSource.Play();
         }
         attemptJump = false;
     }
