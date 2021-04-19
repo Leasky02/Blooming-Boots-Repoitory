@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement: MonoBehaviour
 {
+    public Collider2D groundSensor;
+
     public float jumpForce = 1000f;
     public int directionalForce = 130;
     public string groundTag = "Ground";
@@ -33,20 +35,20 @@ public class PlayerMovement: MonoBehaviour
         }
         justStarted = false;
 
-        if (collision.collider.CompareTag(groundTag) == true)
+        /*if (collision.collider.CompareTag(groundTag) == true)
         {
             touchingGround = true;
-        }
+        }*/
     }
 
     //when collision ends, play sound of leaving ground
 
     public void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag(groundTag) != true)
+        /*if (collision.collider.CompareTag(groundTag) != true)
         {
             touchingGround = false;
-        }
+        }*/
     }
 
     //when left button held down
@@ -125,6 +127,9 @@ public class PlayerMovement: MonoBehaviour
 
     public void FixedUpdate()
     {
+        LayerMask mask = LayerMask.GetMask(groundTag);
+        touchingGround = groundSensor.IsTouchingLayers(mask.value);
+
         if (touchingGround && attemptJump)
         {
             Rigidbody2D ourRigidbody = GetComponent<Rigidbody2D>();
