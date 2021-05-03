@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour
+public class BlueEnemyPatrol : MonoBehaviour
 {
     // ------------------------------------------------
     // Public variables, visible in Unity Inspector
@@ -28,7 +28,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         // Get the rigidbody that we'll be using for movement
         ourRigidbody = GetComponent<Rigidbody2D>();
-        gameObject.GetComponent<Animator>().Play("enemy");
+        gameObject.GetComponent<Animator>().Play("BlueCaterpillar");
     }
 
 

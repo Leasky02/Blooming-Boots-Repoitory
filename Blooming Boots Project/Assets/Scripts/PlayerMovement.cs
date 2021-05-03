@@ -10,6 +10,7 @@ public class PlayerMovement: MonoBehaviour
     public int directionalForce = 130;
     public string groundTag = "Ground";
     private bool touchingGround = false;
+    public int hazardDamage;
 
     //audio varibales containing sounds
     public AudioClip landingSound;
@@ -102,11 +103,18 @@ public class PlayerMovement: MonoBehaviour
         attemptJump = true;
         jumpDirection = -1;
 
-        //set back to left default animation
-        gameObject.GetComponent<Animator>().Play("leftTall");
-
         chargeStarted = false;
 
+        //get the playerHealth script attached to object if there is one
+        PlayerHealth player = GetComponent<PlayerHealth>();
+        //check if there is actually a player health script
+        if (player != null)
+        {
+            //there is a player script on the object collided with so will then perform action
+            player.ChangeHealth(-hazardDamage);
+        }
+        //set back to left default animation
+        gameObject.GetComponent<Animator>().Play("leftTall");
     }
 
     //when right button released
@@ -117,10 +125,20 @@ public class PlayerMovement: MonoBehaviour
         attemptJump = true;
         jumpDirection = 1;
         //set back to right default animation
-        gameObject.GetComponent<Animator>().Play("rightTall");
 
         chargeStarted = false;
 
+        //get the playerHealth script attached to object if there is one
+        PlayerHealth player = GetComponent<PlayerHealth>();
+        //check if there is actually a player health script
+        if (player != null)
+        {
+            //there is a player script on the object collided with so will then perform action
+            player.ChangeHealth(-hazardDamage);
+        }
+
+        //set back to left default animation
+        gameObject.GetComponent<Animator>().Play("rightTall");
     }
 
     //constantly testing for player to jump
