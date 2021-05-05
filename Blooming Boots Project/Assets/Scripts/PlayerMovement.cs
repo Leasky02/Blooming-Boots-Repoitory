@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement: MonoBehaviour
 {
+    //variables relating to collisions and movement
     public Collider2D groundSensor;
-
     public float jumpForce = 1000f;
     public int directionalForce = 130;
     public string groundTag = "Ground";
-    private bool touchingGround = false;
     public int hazardDamage;
+
+    private bool touchingGround = false;
 
     //audio varibales containing sounds
     public AudioClip landingSound;
@@ -36,20 +37,6 @@ public class PlayerMovement: MonoBehaviour
         }
         justStarted = false;
 
-        /*if (collision.collider.CompareTag(groundTag) == true)
-        {
-            touchingGround = true;
-        }*/
-    }
-
-    //when collision ends, play sound of leaving ground
-
-    public void OnCollisionExit2D(Collision2D collision)
-    {
-        /*if (collision.collider.CompareTag(groundTag) != true)
-        {
-            touchingGround = false;
-        }*/
     }
 
     //when left button held down
