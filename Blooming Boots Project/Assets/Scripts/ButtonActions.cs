@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ReturnHome : MonoBehaviour
+public class ButtonActions : MonoBehaviour
 {
     public string levelToLoad;
 
-    public void GoHome()
+    public void LoadLevel()
     {
         SceneManager.LoadScene(levelToLoad);
     }
+
 }
+
