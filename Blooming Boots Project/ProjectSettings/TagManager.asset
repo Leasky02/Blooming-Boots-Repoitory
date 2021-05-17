@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - deathTag
   - music
+  - complete
   layers:
   - Default
   - TransparentFX
