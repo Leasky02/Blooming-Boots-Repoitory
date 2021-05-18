@@ -43,6 +43,7 @@ public class PlayerMovement: MonoBehaviour
 
     public void LeftHeld()
     {
+
         if(charge <= 8f)
             charge += 0.08f;
 
@@ -55,8 +56,17 @@ public class PlayerMovement: MonoBehaviour
                 ourAudioSource.clip = chargeSound;
                 ourAudioSource.Play();
                 chargeStarted = true;
-                //set  to left charging animation
                 gameObject.GetComponent<Animator>().Play("leftSquat");
+
+                /*if(player < 50)
+                {
+                    //set back to left default animation
+                    gameObject.GetComponent<Animator>().Play("DyingleftSquat");
+                } else
+                {
+                    //set back to left default animation
+                    gameObject.GetComponent<Animator>().Play("leftSquat");
+                }*/
             }
         }
     }
@@ -77,8 +87,17 @@ public class PlayerMovement: MonoBehaviour
                 ourAudioSource.clip = chargeSound;
                 ourAudioSource.Play();
                 chargeStarted = true;
-                //set to right charging animation
                 gameObject.GetComponent<Animator>().Play("rightSquat");
+
+                /*if(player < 50)
+                {
+                    //set back to left default animation
+                    gameObject.GetComponent<Animator>().Play("DyingRightSquat");
+                } else
+                {
+                    //set back to left default animation
+                    gameObject.GetComponent<Animator>().Play("RightSquat");
+                }*/
             }
         }
     }
@@ -100,8 +119,18 @@ public class PlayerMovement: MonoBehaviour
             //there is a player script on the object collided with so will then perform action
             player.ChangeHealth(-hazardDamage);
         }
-        //set back to left default animation
         gameObject.GetComponent<Animator>().Play("leftTall");
+
+        /*if(player < 50)
+        {
+            //set back to left default animation
+            gameObject.GetComponent<Animator>().Play("DyingLeftTall");
+        } else
+        {
+            //set back to left default animation
+            gameObject.GetComponent<Animator>().Play("leftTall");
+        }*/
+
     }
 
     //when right button released
@@ -123,9 +152,17 @@ public class PlayerMovement: MonoBehaviour
             //there is a player script on the object collided with so will then perform action
             player.ChangeHealth(-hazardDamage);
         }
-
-        //set back to left default animation
         gameObject.GetComponent<Animator>().Play("rightTall");
+
+        /*if(player < 50)
+        {
+            //set back to left default animation
+            gameObject.GetComponent<Animator>().Play("DyingRightTall");
+        } else
+        {
+            //set back to left default animation
+            gameObject.GetComponent<Animator>().Play("RightTall");
+        }*/
     }
 
     //constantly testing for player to jump
