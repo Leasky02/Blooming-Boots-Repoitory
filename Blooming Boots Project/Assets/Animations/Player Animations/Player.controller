@@ -246,32 +246,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-3824413732014583884
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: REDleftSquat 0
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e7622c0a4e2f9df4ea414bdb3d794ff3, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1102 &-3624386395095805611
 AnimatorState:
   serializedVersion: 5
@@ -418,7 +392,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3cb1de1d78f74d9458b3a5dde1fa0cc4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2d921919a91639f449da5545dc78625b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -695,9 +669,6 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 1119659342888841084}
     m_Position: {x: 380, y: 1120, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -3824413732014583884}
-    m_Position: {x: 415, y: 1185, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6590289768560488438}
     m_Position: {x: 450, y: 1250, z: 0}

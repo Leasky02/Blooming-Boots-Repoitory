@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class AllPlants : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void MainChosen()
     {
-        
+        gameObject.GetComponent<Animator>().Play("otherPlants");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PurpleChosen()
     {
-        
+        gameObject.GetComponent<Animator>().Play("withoutPurple");
+    }
+
+    public void YellowChosen()
+    {
+        gameObject.GetComponent<Animator>().Play("withoutYellow");
+    }
+
+    public void RedChosen()
+    {
+        gameObject.GetComponent<Animator>().Play("withoutRed");
+    }
+
+    public void GreenChosen()
+    {
+        gameObject.GetComponent<Animator>().Play("withoutGreen");
     }
 }
+

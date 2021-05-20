@@ -953,10 +953,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1152fb65d424d8f41a79768b5a9692ef, type: 3}
-    m_FontSize: 30
+    m_FontSize: 25
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -964,11 +964,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Oh dear! you have wandered a little too far away from home. You need to
-    get back soon or you will dry out. But you will have to look out for some water
-    along the way. Hurry! \n\nControls\n\nPress/hold either side of the screen to
-    jump in that direction. The longer you hold it, the bigger the jump. But be careful
-    becasuse every jump uses up your water supply!"
+  m_Text: "Oh dear! you have wandered a little too far from home. You need to get
+    back soon or you will dry out. But you will have to look out for some water along
+    the way and avoid sneaky caterpillars. Hurry! \n\nControls\n\nPress/hold either
+    side of the screen to jump in that direction. The longer you hold it, the bigger
+    the jump. But be careful becasuse every jump uses up your water supply!"
 --- !u!222 &1874769980
 CanvasRenderer:
   m_ObjectHideFlags: 0

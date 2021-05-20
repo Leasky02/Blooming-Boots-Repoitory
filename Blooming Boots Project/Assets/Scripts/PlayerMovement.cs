@@ -49,7 +49,7 @@ public class PlayerMovement: MonoBehaviour
 
         AudioSource ourAudioSource = GetComponent<AudioSource>();
 
-        if(!ourAudioSource.isPlaying && !chargeStarted)
+        if(!ourAudioSource.isPlaying && !chargeStarted && !attemptJump)
         {
             if (touchingGround)
             {
@@ -80,7 +80,7 @@ public class PlayerMovement: MonoBehaviour
 
         AudioSource ourAudioSource = GetComponent<AudioSource>();
 
-        if (!ourAudioSource.isPlaying && !chargeStarted)
+        if (!ourAudioSource.isPlaying && !chargeStarted && !attemptJump)
         {
             if (touchingGround)
             {

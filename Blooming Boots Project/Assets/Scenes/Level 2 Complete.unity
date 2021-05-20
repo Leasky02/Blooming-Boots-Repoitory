@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.5, y: -225.7}
+  m_AnchoredPosition: {x: 0, y: -271}
   m_SizeDelta: {x: 207.13947, y: 75.56814}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17554870
@@ -814,7 +814,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 48}
+  m_AnchoredPosition: {x: 6.5017, y: 86}
   m_SizeDelta: {x: 482.3897, y: 278.41388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &718479221
@@ -849,7 +849,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: Game Complete!
+  m_Text: Level 2 Complete!
 --- !u!222 &718479222
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -892,8 +892,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.2, y: -164.3}
-  m_SizeDelta: {x: 525.7931, y: 67.92161}
+  m_AnchoredPosition: {x: -0.0000019073, y: -230}
+  m_SizeDelta: {x: 525.7931, y: 281.65402}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784131576
 MonoBehaviour:
@@ -921,13 +921,16 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You found your way home
+  m_Text: 'You found your way home!
+
+    You have unlocked 4 new characters to play
+    as!'
 --- !u!222 &784131577
 CanvasRenderer:
   m_ObjectHideFlags: 0
