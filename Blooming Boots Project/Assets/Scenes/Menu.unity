@@ -342,13 +342,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b63ca11d9db20714284fb3df1f1b97de, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.897
+  m_Volume: 0.66
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 164
+  Priority: 178
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcdb1a8f9285eb43bbcd132d92620e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceStrength: 20
+  forceStrength: 10
   stopDistance: 0.1
   patrolPoints:
   - {x: 1, y: 9}

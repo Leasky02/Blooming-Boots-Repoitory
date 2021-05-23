@@ -9,16 +9,23 @@ public class PlayerMovement2 : MonoBehaviour
     public float jumpForce = 1000f;
     public int directionalForce = 130;
     public string groundTag = "Ground";
+    public string stoneTag = "stoneTag";
     public int hazardDamage;
 
     public string activeCharacter = "main";
 
     private bool touchingGround = false;
+    private bool touchingGrass = false;
+    private bool touchingStone = false;
+
+
+
 
     //audio varibales containing sounds
     public AudioClip landingSound;
     public AudioClip chargeSound;
     public AudioClip releaseSound;
+    public AudioClip landingStone;
 
     //variables used in jumping and audio
     public int jumpDirection = 0;
@@ -34,6 +41,14 @@ public class PlayerMovement2 : MonoBehaviour
         {
             AudioSource ourAudioSource = GetComponent<AudioSource>();
             ourAudioSource.clip = landingSound;
+            ourAudioSource.Play();
+
+        }
+
+        if (collision.collider.CompareTag(stoneTag) == true && !justStarted)
+        {
+            AudioSource ourAudioSource = GetComponent<AudioSource>();
+            ourAudioSource.clip = landingStone;
             ourAudioSource.Play();
 
         }
@@ -224,7 +239,14 @@ public class PlayerMovement2 : MonoBehaviour
     public void FixedUpdate()
     {
         LayerMask mask = LayerMask.GetMask(groundTag);
-        touchingGround = groundSensor.IsTouchingLayers(mask.value);
+        touchingGrass = groundSensor.IsTouchingLayers(mask.value);
+
+        LayerMask mask1 = LayerMask.GetMask(stoneTag);
+        touchingStone = groundSensor.IsTouchingLayers(mask1.value);
+
+        if (touchingGrass || touchingStone)
+                touchingGround = true;
+
 
         if (touchingGround && attemptJump)
         {
@@ -233,7 +255,10 @@ public class PlayerMovement2 : MonoBehaviour
             Vector2 jumpDirectionVector = jumpDirection == 1 ? Vector2.right : Vector2.left;
             ourRigidbody.AddForce(jumpDirectionVector * directionalForce * charge * 4 / 5);
             charge = 1f;
+
             touchingGround = false;
+            touchingGrass = false;
+            touchingStone = false;
 
             AudioSource ourAudioSource = GetComponent<AudioSource>();
             ourAudioSource.clip = releaseSound;
@@ -282,9 +307,11 @@ public class PlayerMovement2 : MonoBehaviour
     public void GreenPlant()
     {
         activeCharacter = "green";
-        jumpForce = 300;
+        jumpForce = 350;
         directionalForce = 900;
         Debug.Log("green");
         gameObject.GetComponent<Animator>().Play("GREENrightTall");
     }
+    
 }
+

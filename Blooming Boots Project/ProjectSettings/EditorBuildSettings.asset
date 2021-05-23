@@ -33,6 +33,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1 Complete.unity
     guid: 5932b2e5f5b588343a8fe5592b3a6e53
   - enabled: 1
+    path: Assets/Scenes/Level 2 Checkpoint.unity
+    guid: 61c6f630e5c43eb48a1118cfdc92586e
+  - enabled: 1
+    path: Assets/Scenes/Level 3 Checkpoint.unity
+    guid: 0468ab6c136f77c40abe6a0133deeb83
+  - enabled: 1
     path: Assets/Scenes/Inbetween2.unity
     guid: 80b54e63bf3f216448bde6f6b2aa880d
   - enabled: 1

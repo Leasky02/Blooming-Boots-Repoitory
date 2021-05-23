@@ -9,6 +9,10 @@ public class HealthDisplay : MonoBehaviour
     // This will contain the slider component attached to this object
     // Slider = variable is in the form of a Slider component
     Slider healthSlider;
+    public AudioClip heartBeat;
+    public AudioClip heartBeatFast;
+    private bool audioLive1 = true;
+    private bool audioLive2 = true;
 
     // This will be the PlayerHealth component that we can ask for information about the player's health
     // PlayerHealth = variable is in the form of a PlayerHealth component (your script)
@@ -37,6 +41,30 @@ public class HealthDisplay : MonoBehaviour
         // (not whole numbers aka integers)
         float currentHealth = player.GetHealth();
         float maxHealth = player.startingHealth;
+
+        if (currentHealth <= 20)
+        {
+            if(audioLive1)
+            {
+                AudioSource ourAudioSource = GetComponent<AudioSource>();
+                ourAudioSource.clip = heartBeat;
+                ourAudioSource.Play();
+                Debug.Log("Health is low");
+                audioLive1 = false;
+            }
+        }
+
+        if (currentHealth <= 8)
+        {
+            if (audioLive2)
+            {
+                AudioSource ourAudioSource = GetComponent<AudioSource>();
+                ourAudioSource.clip = heartBeatFast;
+                ourAudioSource.Play();
+                Debug.Log("Health is low");
+                audioLive2 = false;
+            }
+        }
 
         // The slider value should be something between 0 and 1, with 1 being full
         // We want the fraction of fill for the slider

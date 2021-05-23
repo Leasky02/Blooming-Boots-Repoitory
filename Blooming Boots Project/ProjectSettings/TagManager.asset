@@ -8,6 +8,8 @@ TagManager:
   - deathTag
   - music
   - complete
+  - stoneTag
+  - checkpoint
   layers:
   - Default
   - TransparentFX
