@@ -11,8 +11,10 @@ public class HealthDisplay : MonoBehaviour
     Slider healthSlider;
     public AudioClip heartBeat;
     public AudioClip heartBeatFast;
+    public AudioClip death;
     private bool audioLive1 = true;
     private bool audioLive2 = true;
+    private bool audioLive3 = true;
 
     // This will be the PlayerHealth component that we can ask for information about the player's health
     // PlayerHealth = variable is in the form of a PlayerHealth component (your script)
@@ -49,7 +51,7 @@ public class HealthDisplay : MonoBehaviour
                 AudioSource ourAudioSource = GetComponent<AudioSource>();
                 ourAudioSource.clip = heartBeat;
                 ourAudioSource.Play();
-                Debug.Log("Health is low");
+                //Debug.Log("Health is low");
                 audioLive1 = false;
             }
         }
@@ -61,8 +63,20 @@ public class HealthDisplay : MonoBehaviour
                 AudioSource ourAudioSource = GetComponent<AudioSource>();
                 ourAudioSource.clip = heartBeatFast;
                 ourAudioSource.Play();
-                Debug.Log("Health is low");
+                //Debug.Log("Health is low");
                 audioLive2 = false;
+            }
+        }
+
+        if (currentHealth == 0)
+        {
+            if (audioLive3)
+            {
+                AudioSource ourAudioSource = GetComponent<AudioSource>();
+                ourAudioSource.clip =death;
+                ourAudioSource.Play();
+                //Debug.Log("Health is low");
+                audioLive3 = false;
             }
         }
 

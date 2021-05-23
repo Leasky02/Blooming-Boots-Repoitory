@@ -14899,10 +14899,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  levelToLoad: Level 2
-  checkpointLevel: Level 2 Checkpoint
+  levelToLoad: Level 2 Checkpoint
+  checkpointLevel: 
   checkpoint: checkpoint
-  checkpointSound: {fileID: 8300000, guid: 1dc799a6640715a478ca37687adee6fd, type: 3}
 --- !u!82 &1312375246
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16150,6 +16149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heartBeat: {fileID: 8300000, guid: 887fa358562479141a807c599fd37bf3, type: 3}
   heartBeatFast: {fileID: 8300000, guid: 0e2df1a04c3980042becf2765441651d, type: 3}
+  death: {fileID: 8300000, guid: fb1df1bb187f6084fb40b2d29841a84f, type: 3}
 --- !u!114 &1583651154
 MonoBehaviour:
   m_ObjectHideFlags: 0

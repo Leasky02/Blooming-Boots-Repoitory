@@ -10,8 +10,12 @@ public class PlayerHealth : MonoBehaviour
     public string levelToLoad;
     public string checkpointLevel;
 
+    //public float alphaLevel = 5f;
+
+    private bool startTimer = false;
+    private int time = 0;
+
     public string checkpoint = "checkpoint";
-    public AudioClip checkpointSound;
     private bool checkpointReached = false;
 
     void Awake()
@@ -35,8 +39,7 @@ public class PlayerHealth : MonoBehaviour
     //function that will be called when a collision occurs
     public void Kill()
     {
-        
-        SceneManager.LoadScene(levelToLoad);
+        startTimer = true;
     }
 
     public int GetHealth()
@@ -52,11 +55,22 @@ public class PlayerHealth : MonoBehaviour
             if(checkpointReached == false)
             {
                 levelToLoad = checkpointLevel;
-                AudioSource ourAudioSource = GetComponent<AudioSource>();
-                ourAudioSource.clip = checkpointSound;
-                ourAudioSource.Play();
                 checkpointReached = true;
             }
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        if(startTimer)
+        {
+            time++;
+            if(time >= 50)
+            {
+                SceneManager.LoadScene(levelToLoad);
+            }
+            //alphaLevel -= 0.05f;
+            //GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaLevel);
         }
     }
 }
