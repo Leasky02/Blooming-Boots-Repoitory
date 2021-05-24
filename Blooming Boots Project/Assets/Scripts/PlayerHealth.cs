@@ -48,14 +48,18 @@ public class PlayerHealth : MonoBehaviour
     }
 
     //testing for a checkpoint
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.CompareTag(checkpoint) == true)
+        //Debug.Log("collision");
+        if (collision.CompareTag(checkpoint) == true)
         {
+            //Debug.Log("collided with checkpoint");
             if(checkpointReached == false)
             {
+                //Debug.Log("Checkpoint reached");
                 levelToLoad = checkpointLevel;
                 checkpointReached = true;
+                collision.GetComponent<checkpointAnimation>().PlayCheckpointAnimation();
             }
         }
     }
