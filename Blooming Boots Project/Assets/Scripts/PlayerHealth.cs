@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public string levelToLoad;
     public string checkpointLevel;
     public string character;
+    public ParticleSystem deathParticles;
 
     //public float alphaLevel = 5f;
 
@@ -43,6 +44,8 @@ public class PlayerHealth : MonoBehaviour
     {
         startTimer = true;
         GetComponent<PlayerMovement2>().dead = true;
+        deathParticles.Play();
+
 
         switch (character)
         {

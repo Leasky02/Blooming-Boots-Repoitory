@@ -84,12 +84,12 @@ public class PlayerMovement2 : MonoBehaviour
     public void LeftHeld()
     {
 
-        if (charge <= 8f)
+        if (charge <= 8f && touchingGround)
             charge += 0.08f;
 
         AudioSource ourAudioSource = GetComponent<AudioSource>();
 
-        if (!ourAudioSource.isPlaying && !chargeStarted && !attemptJump && !dead)
+        if (!ourAudioSource.isPlaying && !chargeStarted && !attemptJump && !dead && touchingGround)
         {
             if (touchingGround)
             {
@@ -128,12 +128,12 @@ public class PlayerMovement2 : MonoBehaviour
 
     public void RightHeld()
     {
-        if (charge <= 8f)
+        if (charge <= 8f && touchingGround)
             charge += 0.08f;
 
         AudioSource ourAudioSource = GetComponent<AudioSource>();
 
-        if (!ourAudioSource.isPlaying && !chargeStarted && !attemptJump && !dead)
+        if (!ourAudioSource.isPlaying && !chargeStarted && !attemptJump && !dead && touchingGround)
         {
             if (touchingGround)
             {
@@ -172,7 +172,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     public void LeftReleased()
     {
-        if(!dead)
+        if(!dead && touchingGround)
         {
             attemptJump = true;
             jumpDirection = -1;
@@ -218,7 +218,7 @@ public class PlayerMovement2 : MonoBehaviour
 
     public void RightReleased()
     {
-        if(!dead)
+        if(!dead && touchingGround)
         {
             attemptJump = true;
             jumpDirection = 1;
@@ -279,6 +279,7 @@ public class PlayerMovement2 : MonoBehaviour
                 touchingGround = true;
 
 
+
         if (touchingGround && attemptJump)
         {
             Rigidbody2D ourRigidbody = GetComponent<Rigidbody2D>();
@@ -304,7 +305,7 @@ public class PlayerMovement2 : MonoBehaviour
     public void PurplePlant()
     {
         activeCharacter = "purple";
-        jumpForce = 500;
+        jumpForce = 650;
         directionalForce = 900;
         //Debug.Log("purple");
         gameObject.GetComponent<Animator>().Play("PURPLErightTall");
