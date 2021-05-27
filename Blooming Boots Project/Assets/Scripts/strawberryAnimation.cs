@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//controls the animation played when the plant grows and 
+//determines when it can be eaten
 public class strawberryAnimation : MonoBehaviour
 {
     private int timer = 0;

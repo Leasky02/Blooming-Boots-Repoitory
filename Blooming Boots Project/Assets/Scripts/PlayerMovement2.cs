@@ -10,22 +10,30 @@ public class PlayerMovement2 : MonoBehaviour
     public int directionalForce = 130;
     public string groundTag = "Ground";
     public string stoneTag = "stoneTag";
+    public string waterTag = "waterTag";
     public int hazardDamage;
 
     public string activeCharacter = "main";
+    public GameObject landingAudio;
 
     private bool touchingGround = false;
     private bool touchingGrass = false;
     private bool touchingStone = false;
+    private bool touchingWater = false;
+    public bool dead = false;
 
+    //particle system objects
 
-
+    public ParticleSystem grassParticles;
+    public ParticleSystem stoneParticles;
+    public ParticleSystem waterParticles;
 
     //audio varibales containing sounds
     public AudioClip landingSound;
     public AudioClip chargeSound;
     public AudioClip releaseSound;
     public AudioClip landingStone;
+    public AudioClip landingWater;
 
     //variables used in jumping and audio
     public int jumpDirection = 0;
@@ -33,6 +41,11 @@ public class PlayerMovement2 : MonoBehaviour
     public bool justStarted = true;
     public bool chargeStarted = false;
     public bool attemptJump = false;
+
+    private void Start()
+    {
+        
+    }
 
     //when collision first occurs, plays the sound of hitting ground
     public void OnCollisionEnter2D(Collision2D collision)
@@ -42,6 +55,7 @@ public class PlayerMovement2 : MonoBehaviour
             AudioSource ourAudioSource = GetComponent<AudioSource>();
             ourAudioSource.clip = landingSound;
             ourAudioSource.Play();
+            grassParticles.Play();
 
         }
 
@@ -50,7 +64,16 @@ public class PlayerMovement2 : MonoBehaviour
             AudioSource ourAudioSource = GetComponent<AudioSource>();
             ourAudioSource.clip = landingStone;
             ourAudioSource.Play();
+            stoneParticles.Play();
 
+        }
+
+        if (collision.collider.CompareTag(waterTag) == true && !justStarted)
+        {
+            AudioSource ourAudioSource = landingAudio.GetComponent<AudioSource>();
+            ourAudioSource.clip = landingWater;
+            ourAudioSource.Play();
+            waterParticles.Play();
         }
         justStarted = false;
 
@@ -66,7 +89,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         AudioSource ourAudioSource = GetComponent<AudioSource>();
 
-        if (!ourAudioSource.isPlaying && !chargeStarted && !attemptJump)
+        if (!ourAudioSource.isPlaying && !chargeStarted && !attemptJump && !dead)
         {
             if (touchingGround)
             {
@@ -110,7 +133,7 @@ public class PlayerMovement2 : MonoBehaviour
 
         AudioSource ourAudioSource = GetComponent<AudioSource>();
 
-        if (!ourAudioSource.isPlaying && !chargeStarted && !attemptJump)
+        if (!ourAudioSource.isPlaying && !chargeStarted && !attemptJump && !dead)
         {
             if (touchingGround)
             {
@@ -149,44 +172,45 @@ public class PlayerMovement2 : MonoBehaviour
 
     public void LeftReleased()
     {
-        attemptJump = true;
-        jumpDirection = -1;
-
-        chargeStarted = false;
-
-        //get the playerHealth script attached to object if there is one
-        PlayerHealth player = GetComponent<PlayerHealth>();
-        //check if there is actually a player health script
-        if (player != null)
+        if(!dead)
         {
-            //there is a player script on the object collided with so will then perform action
-            player.ChangeHealth(-hazardDamage);
+            attemptJump = true;
+            jumpDirection = -1;
+
+            chargeStarted = false;
+
+            //get the playerHealth script attached to object if there is one
+            PlayerHealth player = GetComponent<PlayerHealth>();
+            //check if there is actually a player health script
+            if (player != null)
+            {
+                //there is a player script on the object collided with so will then perform action
+                player.ChangeHealth(-hazardDamage);
+            }
+
+            switch (activeCharacter)
+            {
+                case "purple":
+                    gameObject.GetComponent<Animator>().Play("PURPLEleftTall");
+                    break;
+
+                case "yellow":
+                    gameObject.GetComponent<Animator>().Play("YELLOWleftTall");
+                    break;
+
+                case "red":
+                    gameObject.GetComponent<Animator>().Play("REDleftTall");
+                    break;
+
+                case "main":
+                    gameObject.GetComponent<Animator>().Play("leftTall");
+                    break;
+
+                case "green":
+                    gameObject.GetComponent<Animator>().Play("GREENleftTall");
+                    break;
+            }
         }
-
-        switch (activeCharacter)
-        {
-            case "purple":
-                gameObject.GetComponent<Animator>().Play("PURPLEleftTall");
-                break;
-
-            case "yellow":
-                gameObject.GetComponent<Animator>().Play("YELLOWleftTall");
-                break;
-
-            case "red":
-                gameObject.GetComponent<Animator>().Play("REDleftTall");
-                break;
-
-            case "main":
-                gameObject.GetComponent<Animator>().Play("leftTall");
-                break;
-
-            case "green":
-                gameObject.GetComponent<Animator>().Play("GREENleftTall");
-                break;
-        }
-
-
     }
 
     //when right button released
@@ -194,57 +218,64 @@ public class PlayerMovement2 : MonoBehaviour
 
     public void RightReleased()
     {
-        attemptJump = true;
-        jumpDirection = 1;
-        //set back to right default animation
-
-        chargeStarted = false;
-
-        //get the playerHealth script attached to object if there is one
-        PlayerHealth player = GetComponent<PlayerHealth>();
-        //check if there is actually a player health script
-        if (player != null)
+        if(!dead)
         {
-            //there is a player script on the object collided with so will then perform action
-            player.ChangeHealth(-hazardDamage);
+            attemptJump = true;
+            jumpDirection = 1;
+            //set back to right default animation
+
+            chargeStarted = false;
+
+            //get the playerHealth script attached to object if there is one
+            PlayerHealth player = GetComponent<PlayerHealth>();
+            //check if there is actually a player health script
+            if (player != null)
+            {
+                //there is a player script on the object collided with so will then perform action
+                player.ChangeHealth(-hazardDamage);
+            }
+
+            switch (activeCharacter)
+            {
+                case "purple":
+                    gameObject.GetComponent<Animator>().Play("PURPLErightTall");
+                    break;
+
+                case "yellow":
+                    gameObject.GetComponent<Animator>().Play("YELLOWrightTall");
+                    break;
+
+                case "red":
+                    gameObject.GetComponent<Animator>().Play("REDrightTall");
+                    break;
+
+                case "main":
+                    gameObject.GetComponent<Animator>().Play("rightTall");
+                    break;
+
+                case "green":
+                    gameObject.GetComponent<Animator>().Play("GREENrightTall");
+                    break;
+            }
         }
-
-        switch (activeCharacter)
-        {
-            case "purple":
-                gameObject.GetComponent<Animator>().Play("PURPLErightTall");
-                break;
-
-            case "yellow":
-                gameObject.GetComponent<Animator>().Play("YELLOWrightTall");
-                break;
-
-            case "red":
-                gameObject.GetComponent<Animator>().Play("REDrightTall");
-                break;
-
-            case "main":
-                gameObject.GetComponent<Animator>().Play("rightTall");
-                break;
-
-            case "green":
-                gameObject.GetComponent<Animator>().Play("GREENrightTall");
-                break;
-        }
-
     }
 
-    //constantly testing for player to jump
+    //constantly testing for player to jump and if they are touching the ground
 
     public void FixedUpdate()
     {
+        //tests all 3 types of ground they can touch to play different sounds
         LayerMask mask = LayerMask.GetMask(groundTag);
         touchingGrass = groundSensor.IsTouchingLayers(mask.value);
 
         LayerMask mask1 = LayerMask.GetMask(stoneTag);
         touchingStone = groundSensor.IsTouchingLayers(mask1.value);
 
-        if (touchingGrass || touchingStone)
+        LayerMask mask2 = LayerMask.GetMask(waterTag);
+        touchingWater = groundSensor.IsTouchingLayers(mask2.value);
+
+        //if one of these is true, the touching ground is true
+        if (touchingGrass || touchingStone || touchingWater)
                 touchingGround = true;
 
 
@@ -259,6 +290,7 @@ public class PlayerMovement2 : MonoBehaviour
             touchingGround = false;
             touchingGrass = false;
             touchingStone = false;
+            touchingWater = false;
 
             AudioSource ourAudioSource = GetComponent<AudioSource>();
             ourAudioSource.clip = releaseSound;
@@ -267,13 +299,14 @@ public class PlayerMovement2 : MonoBehaviour
         attemptJump = false;
     }
 
-
+    //following funcions are called when the player selects a different character
+    //and therefore changes the height and distance they can jump
     public void PurplePlant()
     {
         activeCharacter = "purple";
         jumpForce = 500;
         directionalForce = 900;
-        Debug.Log("purple");
+        //Debug.Log("purple");
         gameObject.GetComponent<Animator>().Play("PURPLErightTall");
     }
 
@@ -282,7 +315,7 @@ public class PlayerMovement2 : MonoBehaviour
         activeCharacter = "yellow";
         jumpForce = 1100;
         directionalForce = 500;
-        Debug.Log("yellow");
+        //Debug.Log("yellow");
         gameObject.GetComponent<Animator>().Play("YELLOWrightTall");
     }
 
@@ -290,8 +323,8 @@ public class PlayerMovement2 : MonoBehaviour
     {
         activeCharacter = "red";
         jumpForce = 1100;
-        directionalForce = 200;
-        Debug.Log("red");
+        directionalForce = 300;
+        //Debug.Log("red");
         gameObject.GetComponent<Animator>().Play("REDrightTall");
     }
 
@@ -300,7 +333,7 @@ public class PlayerMovement2 : MonoBehaviour
         activeCharacter = "main";
         jumpForce = 800;
         directionalForce = 600;
-        Debug.Log("main");
+        //Debug.Log("main");
         gameObject.GetComponent<Animator>().Play("rightTall");
     }
 
@@ -309,7 +342,7 @@ public class PlayerMovement2 : MonoBehaviour
         activeCharacter = "green";
         jumpForce = 350;
         directionalForce = 900;
-        Debug.Log("green");
+        //Debug.Log("green");
         gameObject.GetComponent<Animator>().Play("GREENrightTall");
     }
     

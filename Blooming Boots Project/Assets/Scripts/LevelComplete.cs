@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//loads a new scene when the player collides with the end goal of a level.
 public class LevelComplete : MonoBehaviour
 {
 
@@ -15,9 +15,6 @@ public class LevelComplete : MonoBehaviour
         if (collision.collider.CompareTag(completeTag) == true)
         {
             SceneManager.LoadScene(levelToLoad);
-            /* add in text saying "level 1 complete" with a timer 
-             * along with a success sound which then loads the next scene
-             * also unlock level 2 */
         }
 
     }

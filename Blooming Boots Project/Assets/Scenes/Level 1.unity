@@ -809,7 +809,7 @@ SpriteRenderer:
   m_Size: {x: 4, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &134988008
@@ -1514,7 +1514,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 10
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
   m_MaxChunkCount: 16
@@ -11742,7 +11742,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 4
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -12261,8 +12261,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 7817cec49ae512d498caf45b71127962, type: 3}
   - m_RefCount: 104
     m_Data: {fileID: 21300000, guid: 68afc338862db8f4489286d3b79cc1f2, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: c085c3bccd224724fb708c366ab87cd9, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 637
     m_Data: {fileID: 21300000, guid: d598053e166aae945a3e29f8800369c9, type: 3}
   - m_RefCount: 0
@@ -12277,8 +12277,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: c085c3bccd224724fb708c366ab87cd9, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 1188
     m_Data:
@@ -22581,6 +22581,133 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1017828792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1017828794}
+  - component: {fileID: 1017828793}
+  m_Layer: 0
+  m_Name: landingSounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1017828793
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017828792}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1017828794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017828792}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 26.187677, y: -16.950687, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2051295351}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1042740401
 GameObject:
   m_ObjectHideFlags: 0
@@ -24125,7 +24252,7 @@ Transform:
   - {fileID: 1760697323}
   - {fileID: 2015435183}
   m_Father: {fileID: 2051295351}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1435490508
 GameObject:
@@ -25557,7 +25684,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2051295351}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2051295344
 GameObject:
@@ -25715,12 +25842,16 @@ MonoBehaviour:
   directionalForce: 600
   groundTag: Ground
   stoneTag: stoneTag
+  waterTag: waterTag
   hazardDamage: 1
   activeCharacter: main
+  landingAudio: {fileID: 1017828792}
+  dead: 0
   landingSound: {fileID: 8300000, guid: 089c87f283f4e504f88c9ed3841ada76, type: 3}
   chargeSound: {fileID: 8300000, guid: 149856a00cd90c74da17d18b076d9f74, type: 3}
   releaseSound: {fileID: 8300000, guid: 4fe10e49c3eee5641b00e371cb85690e, type: 3}
-  landingStone: {fileID: 0}
+  landingStone: {fileID: 8300000, guid: 07ca7e04631a9e0468fa2c51462bbc59, type: 3}
+  landingWater: {fileID: 8300000, guid: 94ba374f63597474eb0f600f896972c4, type: 3}
   jumpDirection: 0
   charge: 1
   justStarted: 1
@@ -25824,6 +25955,7 @@ Transform:
   m_LocalPosition: {x: -0.5, y: 0.45, z: 0}
   m_LocalScale: {x: 1.5427104, y: 1.5427104, z: 1.5427104}
   m_Children:
+  - {fileID: 1017828794}
   - {fileID: 2044289299}
   - {fileID: 1430826680}
   m_Father: {fileID: 0}
@@ -25844,6 +25976,7 @@ MonoBehaviour:
   startingHealth: 100
   levelToLoad: Level 1
   checkpointLevel: 
+  character: 
   checkpoint: checkpoint
 --- !u!114 &2051295353
 MonoBehaviour:

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//controls the parallax effect of the background
 public class Parallax : MonoBehaviour
 {
     private float length, startpos;

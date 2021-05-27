@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class wellCollected : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     public GameObject scoreObject;
     public AudioClip fillBucket;
 
     private string playerTag = "Player";
     private bool alreadyAchieved = false;
 
-
+    //calls to set the score to display a well has been found and play 
+    // a sound and change the sprite and make the well un interactable after the first collision
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag(playerTag) == true)

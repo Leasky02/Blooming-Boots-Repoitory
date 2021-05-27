@@ -514,7 +514,7 @@ MonoBehaviour:
   m_Text: 'You unlocked another character!
 
     You can now explore the garden and
-    fgrow your own plants!'
+    grow your own plants!'
 --- !u!222 &359670821
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1703,7 +1703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3d1b23b289778459985c33730b4285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: GameComplete
+  levelToLoad: Level 3 Complete 2
 --- !u!114 &2126024249
 MonoBehaviour:
   m_ObjectHideFlags: 0

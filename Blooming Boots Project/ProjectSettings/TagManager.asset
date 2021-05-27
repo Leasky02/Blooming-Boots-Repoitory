@@ -10,6 +10,7 @@ TagManager:
   - complete
   - stoneTag
   - checkpoint
+  - waterTag
   layers:
   - Default
   - TransparentFX

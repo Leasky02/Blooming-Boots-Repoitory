@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//controls player health and checkpoints
 public class PlayerHealth : MonoBehaviour
 {
     public int startingHealth;
     int currentHealth;
     public string levelToLoad;
     public string checkpointLevel;
+    public string character;
 
     //public float alphaLevel = 5f;
 
@@ -22,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = startingHealth;
     }
-
+    //called when damage is taken from other hazard scripts
     public void ChangeHealth(int changeAmount)
     {
         currentHealth = currentHealth + changeAmount;
@@ -36,10 +38,34 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
-    //function that will be called when a collision occurs
+    //function that will be called when the players health goes to 0
     public void Kill()
     {
         startTimer = true;
+        GetComponent<PlayerMovement2>().dead = true;
+
+        switch (character)
+        {
+            case "purple":
+                gameObject.GetComponent<Animator>().Play("purpleGrave");
+                break;
+
+            case "yellow":
+                gameObject.GetComponent<Animator>().Play("yellowGrave");
+                break;
+
+            case "red":
+                gameObject.GetComponent<Animator>().Play("redGrave");
+                break;
+
+            case "main":
+                gameObject.GetComponent<Animator>().Play("mainGrave");
+                break;
+
+            case "green":
+                gameObject.GetComponent<Animator>().Play("greenGrave");
+                break;
+        }
     }
 
     public int GetHealth()
@@ -63,18 +89,21 @@ public class PlayerHealth : MonoBehaviour
             }
         }
     }
-
+    //controls the timer upon death
     public void FixedUpdate()
     {
         if(startTimer)
         {
             time++;
-            if(time >= 50)
+            if(time >= 45)
             {
                 SceneManager.LoadScene(levelToLoad);
             }
-            //alphaLevel -= 0.05f;
-            //GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, alphaLevel);
         }
+    }
+    //gets the current character in order to determine what death animation to play
+    private void Update()
+    {
+        character = GetComponent<PlayerMovement2>().activeCharacter;
     }
 }

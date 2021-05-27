@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-
+    //allows the same music to play continuously between scenes and allows only 1 to exist
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("music");
