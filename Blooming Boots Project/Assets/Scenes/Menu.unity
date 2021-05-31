@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbcdb1a8f9285eb43bbcd132d92620e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceStrength: 40
+  forceStrength: 10
   stopDistance: 0.1
   patrolPoints:
   - {x: 1, y: 9}

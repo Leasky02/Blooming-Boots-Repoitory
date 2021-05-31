@@ -6,56 +6,47 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 8bc69324748eae341ad07f15c7ae8780
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay.unity
+    guid: 70e255e4a0acdf94fa214313d95b2e40
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay2.unity
+    guid: 4b2c035cbb159624187caac03fa06d5e
+  - enabled: 1
+    path: Assets/Scenes/HowToPlay3.unity
+    guid: 30e2db8828b939a4f9ed33d309ce4c36
+  - enabled: 1
+    path: Assets/Scenes/pre game.unity
+    guid: 8578c64670aa2e5478d1cf47cba0fc28
+  - enabled: 1
     path: Assets/Scenes/Inbetween.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: ef8322533ef6eb3489c38024f54ced66
   - enabled: 1
-    path: Assets/Scenes/Level 2.unity
-    guid: 85b9cb5cf9aa18641877df8855a944f7
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 8bc69324748eae341ad07f15c7ae8780
-  - enabled: 1
-    path: Assets/Scenes/HowToPlay3.unity
-    guid: 30e2db8828b939a4f9ed33d309ce4c36
-  - enabled: 1
-    path: Assets/Scenes/HowToPlay.unity
-    guid: 70e255e4a0acdf94fa214313d95b2e40
-  - enabled: 1
-    path: Assets/Scenes/GameComplete.unity
-    guid: 6fc43000556cb554190a0e396cc1440f
-  - enabled: 1
-    path: Assets/Scenes/Level 2 Complete.unity
-    guid: 6037dd68bb0d0c64ea341610d620a955
-  - enabled: 1
-    path: Assets/Scenes/Level 3 Complete 3.unity
-    guid: 0a924e88b9168914d97db3234116278c
-  - enabled: 1
     path: Assets/Scenes/Level 1 Complete.unity
     guid: 5932b2e5f5b588343a8fe5592b3a6e53
   - enabled: 1
-    path: Assets/Scenes/Level 2 Checkpoint.unity
-    guid: 61c6f630e5c43eb48a1118cfdc92586e
-  - enabled: 1
-    path: Assets/Scenes/Level 3 Checkpoint.unity
-    guid: 0468ab6c136f77c40abe6a0133deeb83
+    path: Assets/Scenes/Level 1 Complete 2.unity
+    guid: 2101945c5355a3b4e9f62cce4a41b439
   - enabled: 1
     path: Assets/Scenes/Inbetween2.unity
     guid: 80b54e63bf3f216448bde6f6b2aa880d
   - enabled: 1
-    path: Assets/Scenes/HowToPlay2.unity
-    guid: 4b2c035cbb159624187caac03fa06d5e
+    path: Assets/Scenes/Level 2.unity
+    guid: 85b9cb5cf9aa18641877df8855a944f7
   - enabled: 1
-    path: Assets/Scenes/pre game.unity
-    guid: 8578c64670aa2e5478d1cf47cba0fc28
+    path: Assets/Scenes/Level 2 Checkpoint.unity
+    guid: 61c6f630e5c43eb48a1118cfdc92586e
   - enabled: 1
-    path: Assets/Scenes/Level 3 Complete 2.unity
-    guid: 461b4f52bd3e2c94a80bc75549fba50a
+    path: Assets/Scenes/Level 2 Complete.unity
+    guid: 6037dd68bb0d0c64ea341610d620a955
   - enabled: 1
-    path: Assets/Scenes/Level 3 Complete.unity
-    guid: dfbc254bae600a146a9dabba699110d4
+    path: Assets/Scenes/Level 2 Complete 2.unity
+    guid: e66303ff9a08ce842921e4a4b0c750ab
   - enabled: 1
     path: Assets/Scenes/Inbetween3.unity
     guid: 60b694e6f88e21645bfc161737767671
@@ -63,9 +54,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 3.unity
     guid: de8eb93e3a120e24fb129f0c51930704
   - enabled: 1
-    path: Assets/Scenes/Level 1 Complete 2.unity
-    guid: 2101945c5355a3b4e9f62cce4a41b439
+    path: Assets/Scenes/Level 3 Checkpoint.unity
+    guid: 0468ab6c136f77c40abe6a0133deeb83
   - enabled: 1
-    path: Assets/Scenes/Level 2 Complete 2.unity
-    guid: e66303ff9a08ce842921e4a4b0c750ab
+    path: Assets/Scenes/Level 3 Complete.unity
+    guid: dfbc254bae600a146a9dabba699110d4
+  - enabled: 1
+    path: Assets/Scenes/Level 3 Complete 2.unity
+    guid: 461b4f52bd3e2c94a80bc75549fba50a
+  - enabled: 1
+    path: Assets/Scenes/Level 3 Complete 3.unity
+    guid: 0a924e88b9168914d97db3234116278c
+  - enabled: 1
+    path: Assets/Scenes/GameComplete.unity
+    guid: 6fc43000556cb554190a0e396cc1440f
   m_configObjects: {}
