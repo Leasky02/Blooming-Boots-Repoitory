@@ -1163,7 +1163,6 @@ GameObject:
   - component: {fileID: 224105976}
   - component: {fileID: 224105974}
   - component: {fileID: 224105981}
-  - component: {fileID: 224105975}
   - component: {fileID: 224105982}
   m_Layer: 8
   m_Name: yellowCaterpillar (5)
@@ -1189,20 +1188,6 @@ MonoBehaviour:
   patrolPoints:
   - {x: 90, y: -2.515}
   - {x: 93, y: -2.515}
---- !u!114 &224105975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224105973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 900a6a376d62acf44b1303384a13a2cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hazardDamage: 10
-  damageTakenSound: {fileID: 0}
 --- !u!95 &224105976
 Animator:
   serializedVersion: 3
