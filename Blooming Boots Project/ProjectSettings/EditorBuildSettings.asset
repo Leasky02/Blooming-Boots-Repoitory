@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 1.unity
     guid: ef8322533ef6eb3489c38024f54ced66
   - enabled: 1
+    path: Assets/Scenes/Level 1 Checkpoint.unity
+    guid: acdef793d284c01498d7363fc626abc1
+  - enabled: 1
     path: Assets/Scenes/Level 1 Complete.unity
     guid: 5932b2e5f5b588343a8fe5592b3a6e53
   - enabled: 1
